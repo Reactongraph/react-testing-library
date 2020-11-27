@@ -21,8 +21,6 @@ const App = () => {
     }
   }
 
-  console.log('-sss-', email, password, textArea, termsAndConditions,selectedInput)
-
   return (
     <div className="App cstm">
       <form className="form-wrapper">
