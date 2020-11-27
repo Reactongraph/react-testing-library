@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Input from './inputComponent';
+import { Labels } from '../../App.test'
 
 const handleChange = (e) => {
     console.log(e.target.value)
@@ -27,7 +28,7 @@ test('It should keep an Email', () => {
         id:"exampleInputEmail1", 
         placeholder:"Enter email",
         name:"email",
-        ariaLabel:"label-email"
+        ariaLabel: Labels.email
     }
     const { input } = setup(emailObj)
     fireEvent.change(input, { target: { value: '23' } })
@@ -42,7 +43,7 @@ test('It should keep an Password Proper', () => {
         id:"exampleInputPassword1", 
         placeholder:"Enter password",
         name:"password",
-        ariaLabel:"label-password"
+        ariaLabel:Labels.password
     }
     const { input } = setup(emailObj)
     fireEvent.change(input, { target: { value: '8349351712' } })

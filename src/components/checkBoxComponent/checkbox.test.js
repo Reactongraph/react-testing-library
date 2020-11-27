@@ -1,9 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import CheckboxComponent from './checkboxComponent';
+import { Labels } from '../../App.test'
 
 const setup = () => {
   const utils = render(<CheckboxComponent />);
-  const input = utils.getByLabelText('cost-input')
+  const input = utils.getByLabelText(Labels.checkbox)
   return {
     input,
     ...utils,

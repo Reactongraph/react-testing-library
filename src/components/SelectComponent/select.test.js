@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import SelectComponent from './selectComponent';
+import { Labels } from '../../App.test'
 
 const handleChange = (e) => {
     console.log(e.target.value)
@@ -8,9 +9,9 @@ const setup = () => {
     const utils = render( 
     <SelectComponent 
         onChange = {(e)=>handleChange(e)}
-        ariaLabel = "arial-select"
+        ariaLabel = {Labels.select}
     />)
-    const select =  utils.getByLabelText("arial-select")
+    const select =  utils.getByLabelText(Labels.select)
     return {
         select,
         utils,
