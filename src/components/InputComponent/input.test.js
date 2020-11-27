@@ -3,20 +3,21 @@ import Input from './inputComponent';
 
 const handleChange = (e) => {
     console.log(e.target.value)
-}
-const setup = ({type, id, placeholder, name}) => {
-    const {container} = render( 
+} 
+const setup = ({type, id, placeholder, name, ariaLabel}) => {
+    const utils = render( 
     <Input 
         type={type} 
         id={id} 
         placeholder={placeholder}
         name={name}
         onChange = {(e)=>handleChange(e)}
+        ariaLabel = {ariaLabel}
     />)
-    const input = container.querySelector(`#${id}`)
+    const input = utils.getByLabelText(ariaLabel)
     return {
         input,
-        container,
+        utils,
     }
 }
  
@@ -25,7 +26,8 @@ test('It should keep an Email', () => {
         type:"email", 
         id:"exampleInputEmail1", 
         placeholder:"Enter email",
-        name:"email"
+        name:"email",
+        ariaLabel:"label-email"
     }
     const { input } = setup(emailObj)
     fireEvent.change(input, { target: { value: '23' } })
@@ -39,7 +41,8 @@ test('It should keep an Password Proper', () => {
         type:"password", 
         id:"exampleInputPassword1", 
         placeholder:"Enter password",
-        name:"password"
+        name:"password",
+        ariaLabel:"label-password"
     }
     const { input } = setup(emailObj)
     fireEvent.change(input, { target: { value: '8349351712' } })

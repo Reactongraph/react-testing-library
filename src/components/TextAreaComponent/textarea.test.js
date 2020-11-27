@@ -5,14 +5,14 @@ const handleChange = (e) => {
     console.log(e.target.value)
 }
 const setup = () => {
-    const {container} = render( 
+    const utils = render( 
     <TextArea 
         onChange = {(e)=>handleChange(e)}
     />)
-    const textArea = container.querySelector(`#textarea`)
+    const textArea =  utils.getByLabelText("arial-textarea")
     return {
         textArea,
-        container,
+        utils,
     }
 }
 

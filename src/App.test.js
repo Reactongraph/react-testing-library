@@ -3,22 +3,22 @@ import App from './App';
 
 
 test('when we click on form submit button', () => {
-  const {container} = render(<App />)
-  const Element = container.querySelector(`#btn-submit`); 
+  const utils = render(<App />)
+  const Element = utils.getByLabelText('arial-btn')
 
-  const inputEmail = container.querySelector(`#exampleInputEmail1`)
+  const inputEmail = utils.getByLabelText('label-email')
   fireEvent.change(inputEmail, { target: { value: '23' } })
 
-  const inputPassword = container.querySelector(`#exampleInputPassword2`)
+  const inputPassword = utils.getByLabelText('label-password')
   fireEvent.change(inputPassword, { target: { value: '8349351712' } })
 
-  const select = container.querySelector(`#exampleFormControlSelect1`)
+  const select = utils.getByLabelText(`arial-select`)
   fireEvent.change(select, { target: { value: '1' } })
     
-  const textArea = container.querySelector(`#textarea`)
+  const textArea = utils.getByLabelText("arial-textarea")
   fireEvent.change(textArea, { target: { value: 'my name is react hub' } })
 
-  const checkbox = container.querySelector('#check1')
+  const checkbox = utils.getByLabelText('cost-input')
   fireEvent.change(checkbox, { target: { checked: true } })
 
   expect(fireEvent.click(Element)).toBeTruthy()

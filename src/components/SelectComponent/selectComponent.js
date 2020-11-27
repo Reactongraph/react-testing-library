@@ -1,9 +1,9 @@
 const SelectComponent = (props) => {
-    const { onChange} = props
+    const { onChange, ariaLabel} = props
     return(
      <div className="form-group">
         <label htmlFor="exampleFormControlSelect1">Select Number</label>
-        <select className="form-control" id="exampleFormControlSelect1" onChange={(e)=>onChange(e)}>
+        <select className="form-control" id="exampleFormControlSelect1" onChange={(e)=>onChange(e)} aria-label={ariaLabel}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

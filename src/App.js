@@ -35,6 +35,7 @@ const App = () => {
             placeholder="Enter email"
             name="email"
             onChange={(e) => setEmail(e.target.value)}
+            ariaLabel="label-email"
           />
         </div>
         <div className="form-group">
@@ -46,9 +47,10 @@ const App = () => {
             value={password}
             placeholder="Password"
             onChange={(e) => setPass(e.target.value)}
+            ariaLabel="label-password"
           />
         </div>
-        <SelectComponent onChange={(e) => setSelectedInput(e.target.value)} />
+        <SelectComponent onChange={(e) => setSelectedInput(e.target.value)}  ariaLabel = "arial-select"/>
         <TextArea onChange={(e) => setTextArea(e.target.value)} />
         <CheckboxComponent
           checked={termsAndConditions}
@@ -57,7 +59,7 @@ const App = () => {
           onChange={(e) => setTermsConditions(e.target.checked)}
         />
         <div className="btn-wrap">
-          <div className="btn" onClick={(e) => handleSubmit()} id="btn-submit"> Save Data </div>
+          <div className="btn" onClick={(e) => handleSubmit()} id="btn-submit" aria-label="arial-btn"> Save Data </div>
         </div>
       </form>
     </div>

@@ -5,14 +5,15 @@ const handleChange = (e) => {
     console.log(e.target.value)
 }
 const setup = () => {
-    const {container} = render( 
+    const utils = render( 
     <SelectComponent 
         onChange = {(e)=>handleChange(e)}
+        ariaLabel = "arial-select"
     />)
-    const select = container.querySelector(`#exampleFormControlSelect1`)
+    const select =  utils.getByLabelText("arial-select")
     return {
         select,
-        container,
+        utils,
     }
 }
 
