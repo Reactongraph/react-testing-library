@@ -9,7 +9,7 @@ const TextArea = (props) => {
         name="textArea"
         rows="3"
         aria-label="arial-textarea"
-        onChange={(e) => onChange(e)}
+        onChange={onChange}
       ></textarea>
     </div>
   );

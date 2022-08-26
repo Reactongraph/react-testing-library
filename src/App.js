@@ -7,27 +7,27 @@ import CheckboxComponent from "./components/checkBoxComponent/checkboxComponent"
 import "./App.css";
 
 const App = () => {
-  const [state, setState] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [textArea, setTextArea] = useState("");
   const [selectedInput, setSelectedInput] = useState("");
   const [termsAndConditions, setTermsConditions] = useState(false);
 
   const handleSubmit = () => {
-    if (state.email && state.password && textArea && selectedInput) {
-      console.log("form submit successfully");
+    if (email && password && textArea && selectedInput) {
+      alert("form submit successfully");
     } else {
-      console.log("please fill all the detail");
+      alert("please fill all the detail");
     }
   };
-  function Onchange(evt) {
-    setState((prev) => ({
-      ...prev,
-      [evt.target.name]: evt.target.value,
-    }));
-  }
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+    if (name === "email") {
+      setEmail(value);
+    } else {
+      setPassword(value);
+    }
+  };
   return (
     <div className="App cstm">
       <form className="form-wrapper">
@@ -43,7 +43,7 @@ const App = () => {
                 describedby={data.describedby}
                 placeholder={data.placeholder}
                 name={data.name}
-                onChange={Onchange}
+                onChange={handleChange}
                 ariaLabel={data.ariaLabel}
               />
             </div>
@@ -63,12 +63,11 @@ const App = () => {
         <div className="btn-wrap">
           <div
             className="btn"
-            onClick={(e) => handleSubmit()}
+            onClick={handleSubmit}
             id="btn-submit"
             aria-label="arial-btn"
           >
-            {" "}
-            Save Data{" "}
+            Save Data
           </div>
         </div>
       </form>
